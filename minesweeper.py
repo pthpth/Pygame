@@ -1,3 +1,11 @@
+#INSTRUCTIONS
+#Use arrow keys to move around
+#Press 1 to open the boxes
+#Press 2 to Flag 
+#Dont use the numpad keys
+#The game finishes when you open all boxes or open a box having bomb
+#u/DarkLord0206
+
 import random
 import time
 import pygame

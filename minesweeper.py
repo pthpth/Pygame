@@ -1,10 +1,10 @@
-#INSTRUCTIONS
-#Use arrow keys to move around
-#Press 1 to open the boxes
-#Press 2 to Flag 
-#Dont use the numpad keys
-#The game finishes when you open all boxes or open a box having bomb
-#u/DarkLord0206
+# INSTRUCTIONS
+# Use arrow keys to move around
+# Press 1 to open the boxes
+# Press 2 to Flag
+# Dont use the numpad keys
+# The game finishes when you open all boxes or open a box having bomb
+# u/DarkLord0206
 
 import random
 import time
@@ -21,7 +21,7 @@ from pygame.locals import (
     K_2
 )
 
-number = 9
+number = 5
 SCREEN_WIDTH = 450
 SCREEN_HEIGHT = 450
 wid = int(SCREEN_WIDTH / number)
@@ -30,7 +30,7 @@ pygame.init()
 pygame.font.init()
 typer = pygame.font.SysFont("Comic Sans MS", 30)
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-BOMBS = 10
+BOMBS = 5
 FINAL_TEXT = "PRESS ESCAPE AGAIN"
 tiles_turned = 0
 
@@ -226,7 +226,7 @@ while running:
             elif event.key == K_2:
                 flags_added = toggle_Flag(marker_pos, flags_added)
             if tiles_turned == number * number - BOMBS and flags_added == BOMBS:
-                FINAL_TEXT=game_over(1)
+                FINAL_TEXT = game_over(1)
                 running = False
 
         elif event.type == QUIT:
@@ -237,7 +237,7 @@ while running:
     marker.text = user[marker_pos[0]][marker_pos[1]].text
     pygame.display.flip()
 running = True
-if FINAL_TEXT=="YOU HAVE WON":
+if FINAL_TEXT == "YOU HAVE WON":
     while running:
         t = pygame.font.SysFont("Comic Sans MS", 40)
         r = t.render(FINAL_TEXT, False, (255, 0, 0))
@@ -253,11 +253,16 @@ if FINAL_TEXT=="YOU HAVE WON":
 else:
     for i in range(number):
         for j in range(number):
-            if count(hidden,i+1,j+1)==10:
+            if count(hidden, i + 1, j + 1) == 10:
                 user[i][j].update_text()
-                screen.blit(user[i][j].text,user[i][j].rect)
+                screen.blit(user[i][j].text, user[i][j].rect)
                 pygame.display.flip()
-                time.sleep(1)
+    running = True
+    while running:
+        for event in pygame.event.get():
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                    running = False
     t = pygame.font.SysFont("Comic Sans MS", 60)
     r = t.render(FINAL_TEXT, False, (255, 0, 0))
     s = pygame.Surface((600, 600))
@@ -265,4 +270,4 @@ else:
     screen.blit(s, s.get_rect(center=(300, 300)))
     screen.blit(r, s.get_rect(center=(300, 300)))
     pygame.display.flip()
-    time.sleep(5)
+pygame.quit()

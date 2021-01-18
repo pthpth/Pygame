@@ -77,10 +77,10 @@ def make_bombs(row, col):
     arr = make_2d(row + 2, col + 2)
     bombs_done = 0
     while not bombs_done == BOMBS:
-        x = random.randint(1, number)
-        y = random.randint(1, number)
-        if arr[x][y] != 10:
-            arr[x][y] = 10
+        x_coord = random.randint(1, number)
+        y_coord = random.randint(1, number)
+        if arr[x_coord][y_coord] != 10:
+            arr[x_coord][y_coord] = 10
             bombs_done += 1
     return arr
 
@@ -120,22 +120,22 @@ def update_values(current, prv):
         return
     user[current[0]][current[1]].update_text()
     if user[current[0]][current[1]].val == 0:
-        s = [current[0], current[1] + 1]
-        update_values(s, current)
-        s = [current[0], current[1] - 1]
-        update_values(s, current)
-        s = [current[0] + 1, current[1] + 1]
-        update_values(s, current)
-        s = [current[0] - 1, current[1] + 1]
-        update_values(s, current)
-        s = [current[0] + 1, current[1] - 1]
-        update_values(s, current)
-        s = [current[0] + 1, current[1]]
-        update_values(s, current)
-        s = [current[0] - 1, current[1] - 1]
-        update_values(s, current)
-        s = [current[0] - 1, current[1]]
-        update_values(s, current)
+        s_2 = [current[0], current[1] + 1]
+        update_values(s_2, current)
+        s_2 = [current[0], current[1] - 1]
+        update_values(s_2, current)
+        s_2 = [current[0] + 1, current[1] + 1]
+        update_values(s_2, current)
+        s_2 = [current[0] - 1, current[1] + 1]
+        update_values(s_2, current)
+        s_2 = [current[0] + 1, current[1] - 1]
+        update_values(s_2, current)
+        s_2 = [current[0] + 1, current[1]]
+        update_values(s_2, current)
+        s_2 = [current[0] - 1, current[1] - 1]
+        update_values(s_2, current)
+        s_2 = [current[0] - 1, current[1]]
+        update_values(s_2, current)
     else:
         return
 

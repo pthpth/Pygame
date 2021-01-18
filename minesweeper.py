@@ -7,7 +7,6 @@
 # u/DarkLord0206
 
 import random
-import time
 import pygame
 from pygame.locals import (
     K_UP,

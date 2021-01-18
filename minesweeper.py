@@ -21,7 +21,7 @@ from pygame.locals import (
     K_2
 )
 
-number = 5
+number = 10
 SCREEN_WIDTH = 450
 SCREEN_HEIGHT = 450
 wid = int(SCREEN_WIDTH / number)
@@ -30,7 +30,7 @@ pygame.init()
 pygame.font.init()
 typer = pygame.font.SysFont("Comic Sans MS", 30)
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-BOMBS = 5
+BOMBS = 9
 FINAL_TEXT = "PRESS ESCAPE AGAIN"
 tiles_turned = 0
 
@@ -66,7 +66,7 @@ class box(pygame.sprite.Sprite):
         elif self.val == 1:
             color = (34, 139, 34)
         elif self.val == 10:
-            color = (255, 0, 0)
+            color = (0, 0, 0)
         elif self.val > 3:
             color = (255, 0, 0)
         self.text = typer.render(str(self.val), False, color)

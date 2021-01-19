@@ -20,7 +20,7 @@ from pygame.locals import (
     K_2
 )
 
-number = 10
+number = 5
 SCREEN_WIDTH = 450
 SCREEN_HEIGHT = 450
 wid = int(SCREEN_WIDTH / number)
@@ -29,7 +29,7 @@ pygame.init()
 pygame.font.init()
 typer = pygame.font.SysFont("Comic Sans MS", 30)
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-BOMBS = 9
+BOMBS = 4
 FINAL_TEXT = "PRESS ESCAPE AGAIN"
 tiles_turned = 0
 
